@@ -10,7 +10,7 @@ namespace AutoDraftWeb.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("FlightFinder");
         }
 
         public ActionResult About()
