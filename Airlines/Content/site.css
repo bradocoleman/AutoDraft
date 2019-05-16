@@ -1,0 +1,10 @@
+﻿body {
+}
+.flightCard {
+
+    background-color: aliceblue;
+    border-radius: 10px;
+    border-color: #ccc;
+    margin: 10px;
+    padding: 5px
+}
