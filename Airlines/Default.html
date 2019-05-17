@@ -10,45 +10,48 @@
 </head>
 <body ng-app="airlineApp">
 
-<div class="container" ng-controller="flightsController">
+    <div class="container" ng-controller="flightsController">
+        <h1>Airlines</h1>
+        <div>
+            <div class="alert alert-success" ng-show="status">
+                {{status}}
+            </div>
+        </div>
 
-    <h1>Airlines</h1>
-       
-    <div class="row">
-        <div class="col-md-6" ng-repeat="flight in flights">
-            <div class="flightCard">
+        <div class="row">
+            <div class="col-md-6" ng-repeat="flight in flights">
+                <div class="flightCard">
+                    <h3>{{flight.airline}}</h3>
 
-                <h3>{{flight.airline}}</h3>
-                
-                <div class="text-right">
-                    <button ng-class="{btn:true, 'btn-success': flight.approved }" ng-click="selectFlight(flight)">
-                        Select&nbsp;&nbsp;<i class="fas fa-check"></i>
-                    </button>
+                    <div class="text-right">
+                        <button ng-class="{btn:true, 'btn-success': flight.approved }" ng-click="selectFlight(flight)">
+                            Select&nbsp;&nbsp;<i class="fas fa-check"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <span>Price : {{ flight.price }}</span>
+                        <span>Duration : {{ flight.totalDuration }}</span>
+                    </div>
+                    <hr />
+                    <div>
+                        <span>Start Time : {{ flight.price }}</span>
+                        <span>End Time : {{ flight.totalDuration }}</span>
+                        <ul class="breadcrumb">
+                            <li ng-repeat="city in flight.cities">
+                                {{ city }}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div>
-                    <span>Price : {{ flight.price }}</span>
-                    <span>Duration : {{ flight.totalDuration }}</span>
-                </div>
-                <hr/>
-                <div>
-                    <span>Start Time : {{ flight.price }}</span>
-                    <span>End Time : {{ flight.totalDuration }}</span>
-                    <ul class="breadcrumb">
-                        <li ng-repeat="city in flight.cities">
-                            {{ city }}
-                        </li>
-                    </ul>
-                </div>
-
             </div>
         </div>
     </div>
-</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="Scripts/angular.js"></script>
 <script src="airlinesApp/airlineApp.js"></script>
 <script src="airlinesApp/controllers/flightsController.js"></script>
+<script src="airlinesApp/services/flightService.js"></script>
 
 </body>
 
